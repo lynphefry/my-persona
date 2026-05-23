@@ -73,7 +73,9 @@ a {
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  /* fallback for color-mix for older browsers */
+  color: #13a85a;
+  /* color: color-mix(in srgb, var(--accent-color), transparent 25%); */
   text-decoration: none;
 }
 
@@ -86,7 +88,46 @@ h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
 }
+service-card {
+  background: var(--surface-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  padding: 40px 20px 30px 20px;
+  margin-bottom: 30px;
+  transition: box-shadow 0.3s, transform 0.3s;
+  color: var(--default-color);
+}
 
+.service-card .icon {
+  font-size: 40px;
+  color: var(--accent-color);
+  margin-bottom: 18px;
+}
+
+.service-card h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--heading-color);
+}
+
+.service-card p {
+  font-size: 15px;
+  color: var(--default-color);
+}
+
+.service-card:hover {
+  box-shadow: 0 8px 32px rgba(24,210,110,0.15);
+  transform: translateY(-6px) scale(1.03);
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.service-card:hover h4,
+.service-card:hover p,
+.service-card:hover .icon {
+  color: var(--contrast-color);
+}
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -337,7 +378,7 @@ h6 {
     margin: 0;
     border-radius: 6px;
     background-color: var(--nav-mobile-background-color);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border: 1px solid #e6e6e6; /* fallback for color-mix(in srgb, var(--default-color), transparent 90%) */
     box-shadow: none;
     overflow-y: auto;
     transition: 0.3s;
@@ -370,7 +411,7 @@ h6 {
     justify-content: center;
     border-radius: 50%;
     transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    background-color: rgba(24, 210, 110, 0.1); /* fallback for color-mix(in srgb, var(--accent-color), transparent 90%) */
   }
 
   .navmenu a i:hover,
@@ -492,6 +533,8 @@ h6 {
 
 .footer .copyright {
   padding-top: 25px;
+  border-top: 1px solid #e6e6e6; /* fallback for color-mix(in srgb, var(--default-color), transparent 90%) */
+  border-top: 1px solid #e6e6e6; /* fallback for color-mix(in srgb, var(--default-color), transparent 90%) */
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
